@@ -11,9 +11,17 @@ router.get('/', (req, res, next) => {
 
 //Insere um Produto
 router.post('/', (req, res, next) => {
+
+    const produto = {
+        nome: req.body.nome,
+        preco: req.body.preco
+    };
+
     res.status(201).send({
-        mensagem: 'Insere produtos'
+        mensagem: 'Insere produtos',
+        produtoCriado: produto
     });
+    
 });
 
 //Retorna os dados de um produto
@@ -35,14 +43,14 @@ router.get('/:id_produto', (req, res, next) => {
 //Altera um produto
 router.patch('/', (req, res, next) => {
     res.status(201).send({
-        mensagem: 'Usando o Patch dentro da rota'
+        mensagem: 'Altera o produto'
     })
 });
 
 //Exclui um Produto
 router.delete('/', (req, res, next) => {
     res.status(201).send({
-        mensagem: 'Usando o delete dentro da rota'
+        mensagem: 'Exclui um produto'
     })
 });
 
